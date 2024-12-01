@@ -41,21 +41,21 @@ Together, the Stream and Task work to ensure that the updates are captured, tran
 	- The Snowflake Stream captures any incremental changes, while Snowflake Tasks automate the updates to both tables, ensuring real-time consistency and historical accuracy.
 
 ## Key Components
-  #### AWS EC2 Instance
-  - Provisioned as the foundation for running the Python script and hosting Apache NiFi and Jupyter Lab within Docker containers.
-  #### Apache NiFi
-  - Used for automating the data transfer from the EC2 instance to AWS S3, ensuring seamless integration and data flow.
-  #### Jupyter Lab with Python
-  - The Faker module is used within Jupyter Lab to generate synthetic datasets, which are then stored as CSV files in the EC2 instance for further processing.
-  #### AWS S3
-  - Acts as the temporary storage location for the CSV files before they are loaded into Snowflake via Snowpipe for further processing.
-  #### Snowflake
-  - Used for storing and processing data with three main tables: 
-    - **`customer_raw`**: Stores the raw, unmodified data fetched from S3.
-    - **`customer`**: Maintains the current records using SCD1, updating the table with new or updated records.
-    - **`customer_history`**: Maintains historical records using SCD2, tracking all changes over time.
-  - Snowpipe loads data from S3 into Snowflake for processing.
-  - Streams and Tasks automate the management of data updates and historical tracking in real-time.
+- **`AWS EC2 Instance`**
+	- Provisioned as the foundation for running the Python script and hosting Apache NiFi and Jupyter Lab within Docker containers.
+- **`Apache NiFi`**
+	- Used for automating the data transfer from the EC2 instance to AWS S3, ensuring seamless integration and data flow.
+- **`Jupyter Lab with Python`**
+	- The Faker module is used within Jupyter Lab to generate synthetic datasets, which are then stored as CSV files in the EC2 instance for further processing.
+- **`AWS S3`**
+	- Acts as the temporary storage location for the CSV files before they are loaded into Snowflake via Snowpipe for further processing.
+- **`Snowflake`**
+	  - Used for storing and processing data with three main tables: 
+	    - **`customer_raw`**: Stores the raw, unmodified data fetched from S3.
+	    - **`customer`**: Maintains the current records using SCD1, updating the table with new or updated records.
+	    - **`customer_history`**: Maintains historical records using SCD2, tracking all changes over time.
+	  - Snowpipe loads data from S3 into Snowflake for processing.
+	  - Streams and Tasks automate the management of data updates and historical tracking in real-time.
 
 ## Snowflake Tables and Workflow
 - Raw Data Table (customer_raw)
