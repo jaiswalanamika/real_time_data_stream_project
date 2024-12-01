@@ -57,6 +57,19 @@ Together, the Stream and Task work to ensure that the updates are captured, tran
   - Snowpipe loads data from S3 into Snowflake for processing.
   - Streams and Tasks automate the management of data updates and historical tracking in real-time.
 
+## Snowflake Tables and Workflow
+- 1. Raw Data Table (customer_raw)
+		○ Stores the raw, unmodified data fetched from S3 before any transformation or processing occurs.
+- 2. Current Records Table (customer)
+		○ Updates and maintains the latest records using SCD1 by inserting only new or updated records from the customer_raw table.
+- 3. Historical Data Table (customer_history)
+		○ Maintains historical records using SCD2, tracking all changes over time, ensuring data integrity and accurate historical tracking.
+- 4. Snowflake Stream
+		○ Tracks incremental changes in the customer table (current records), enabling the efficient handling and update of new or modified data.
+- 5. Snowflake Task
+		○ Automates the process of updating both the customer table and the customer_history table in real-time, ensuring continuous data flow and historical tracking        without manual intervention.
+
+
 
 
 
