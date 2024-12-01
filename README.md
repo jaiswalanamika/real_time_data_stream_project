@@ -59,15 +59,15 @@ Together, the Stream and Task work to ensure that the updates are captured, tran
 
 ## Snowflake Tables and Workflow
 - Raw Data Table (customer_raw)
-		○ Stores the raw, unmodified data fetched from S3 before any transformation or processing occurs.
+	- ○ Stores the raw, unmodified data fetched from S3 before any transformation or processing occurs.
 - Current Records Table (customer)
-		○ Updates and maintains the latest records using SCD1 by inserting only new or updated records from the customer_raw table.
+	- ○ Updates and maintains the latest records using SCD1 by inserting only new or updated records from the customer_raw table.
 - Historical Data Table (customer_history)
-		○ Maintains historical records using SCD2, tracking all changes over time, ensuring data integrity and accurate historical tracking.
+	- ○ Maintains historical records using SCD2, tracking all changes over time, ensuring data integrity and accurate historical tracking.
 - Snowflake Stream
-		○ Tracks incremental changes in the customer table (current records), enabling the efficient handling and update of new or modified data.
+	- ○ Tracks incremental changes in the customer table (current records), enabling the efficient handling and update of new or modified data.
 - Snowflake Task
-		○ Automates the process of updating both the customer table and the customer_history table in real-time, ensuring continuous data flow and historical tracking        without manual intervention.
+	- ○ Automates the process of updating both the customer table and the customer_history table in real-time, ensuring continuous data flow and historical tracking without manual intervention.
 
 
 
