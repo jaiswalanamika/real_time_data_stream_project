@@ -50,12 +50,12 @@ Together, the Stream and Task work to ensure that the updates are captured, tran
 - **`AWS S3`**
 	- Acts as the temporary storage location for the CSV files before they are loaded into Snowflake via Snowpipe for further processing.
 - **`Snowflake`**
-	  - Used for storing and processing data with three main tables: 
+	- Used for storing and processing data with three main tables: 
 	    - **`customer_raw`**: Stores the raw, unmodified data fetched from S3.
 	    - **`customer`**: Maintains the current records using SCD1, updating the table with new or updated records.
 	    - **`customer_history`**: Maintains historical records using SCD2, tracking all changes over time.
-	  - Snowpipe loads data from S3 into Snowflake for processing.
-	  - Streams and Tasks automate the management of data updates and historical tracking in real-time.
+       - Snowpipe loads data from S3 into Snowflake for processing.
+       - Streams and Tasks automate the management of data updates and historical tracking in real-time.
 
 ## Snowflake Tables and Workflow
 - Raw Data Table (customer_raw)
