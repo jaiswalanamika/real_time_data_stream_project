@@ -21,3 +21,11 @@ The pipeline performs the following tasks:
 #### 3. Historical Data Table (customer_history):
 - The customer_history table is responsible for maintaining a log of all historical changes. It uses SCD2 (Slowly Changing Dimension Type 2) to track changes over time, ensuring that every modification or update to customer data is recorded with a timestamp and kept for historical reference.
 
+## 5. Stream and Task for Automation
+#### Snowflake Stream:
+- A Stream is created on the customer table to track incremental changes. The stream captures any new or modified records, ensuring that only the relevant changes are identified and processed. This allows the system to keep the data updated automatically as new files are loaded and processed.
+#### Snowflake Task:
+- Tasks are used to automate the update process for both the customer and customer_history tables. The task ensures that as new data arrives in the customer_raw table and is inserted into the customer table, the corresponding changes are also reflected in the customer_history table. This automation keeps the entire data transformation pipeline seamless and efficient, running in real-time without manual intervention.
+
+
+
