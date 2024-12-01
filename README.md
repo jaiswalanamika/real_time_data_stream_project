@@ -1,7 +1,7 @@
 # Automated ETL Pipeline with AWS, Apache NiFi, and Snowflake
 This project demonstrates the creation of a fully automated ETL pipeline using AWS EC2, Apache NiFi, Jupyter Lab, and Snowflake. The pipeline automates data generation, transfer, storage, and transformation, making it scalable and efficient for handling large datasets. Here's a detailed breakdown of the architecture and its components:
 
-# Pipeline Overview
+## Pipeline Overview
 The pipeline performs the following tasks:
 
 ## 1. Data Generation
@@ -51,9 +51,9 @@ Together, the Stream and Task work to ensure that the updates are captured, tran
 - Acts as the temporary storage location for the CSV files before they are loaded into Snowflake via Snowpipe for further processing.
 #### Snowflake
 - Used for storing and processing data with three main tables: 
--- customer_raw: Stores the raw, unmodified data fetched from S3.
--- customer: Maintains the current records using SCD1, updating the table with new or updated records.
--- customer_history: Maintains historical records using SCD2, tracking all changes over time.
+#####customer_raw: Stores the raw, unmodified data fetched from S3.
+#####customer: Maintains the current records using SCD1, updating the table with new or updated records.
+#####customer_history: Maintains historical records using SCD2, tracking all changes over time.
 - Snowpipe loads data from S3 into Snowflake for processing.
 - Streams and Tasks automate the management of data updates and historical tracking in real-time.
 
