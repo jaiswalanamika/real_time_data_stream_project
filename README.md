@@ -88,6 +88,20 @@ Together, the Stream and Task work to ensure that the updates are captured, tran
 - AWS S3
 - Snowflake
 
+## Setup Instructions
+- 1. AWS EC2 Instance:
+	- Set up an AWS EC2 instance to host the project.
+	- Install Docker and configure Apache NiFi and Jupyter Lab inside containers.
+- 2. Python and Faker Module:
+	- Install the Faker module and configure the Python script to generate synthetic data.
+ - 3. NiFi Workflow:
+	- Set up the NiFi workflow to monitor the local folder and automatically transfer files to AWS S3.
+ - 4. Snowflake Setup:
+	- Configure Snowpipe for automatic data loading from S3 into Snowflake.
+	- Create the necessary tables, streams, and tasks for automating data processing and maintaining historical records.
+
+## Conclusion
+This pipeline provides an efficient, automated solution for generating, storing, and processing synthetic data. By leveraging the power of AWS, Apache NiFi, and Snowflake, this project demonstrates the ease of integrating cloud storage, data transformation, and real-time updates to maintain a consistent and accurate dataset.
 
 
 
