@@ -70,23 +70,23 @@ Together, the Stream and Task work to ensure that the updates are captured, tran
 	- Automates the process of updating both the customer table and the customer_history table in real-time, ensuring continuous data flow and historical tracking without manual intervention.
 
 ## Automation Flow
-### Data Generation:
+- Data Generation:
 	- The Python script in Jupyter Lab generates synthetic data and saves it to a folder on the EC2 instance.
-### Data Transfer:
+- Data Transfer:
 	- Apache NiFi detects new files in the local folder and uploads them to AWS S3.
-### Data Load:
+- Data Load:
 	- Snowpipe automatically loads the data from S3 into Snowflake for processing.
-### Data Processing:
+- Data Processing:
 	- The Current Records Table and Historical Data Table are updated automatically via Snowflake Streams and Tasks, ensuring the latest data is always reflected in real-time.
 
 ## Technologies Used
-	-AWS EC2
- 	-Docker
-  	-Apache NiFi
-   	-Jupyter Lab
-    	-Python
-     	-AWS S3
-	-Snowflake
+- AWS EC2
+- Docker
+- Apache NiFi
+- Jupyter Lab
+- Python
+- AWS S3
+- Snowflake
 
 
 
