@@ -58,25 +58,25 @@ Together, the Stream and Task work to ensure that the updates are captured, tran
      - Streams and Tasks automate the management of data updates and historical tracking in real-time.
 
 ## Snowflake Tables and Workflow
-- Raw Data Table (customer_raw)
+- **`Raw Data Table (customer_raw)`**
 	- Stores the raw, unmodified data fetched from S3 before any transformation or processing occurs.
-- Current Records Table (customer)
+- **`Current Records Table (customer)`**
 	- Updates and maintains the latest records using SCD1 by inserting only new or updated records from the customer_raw table.
-- Historical Data Table (customer_history)
+- **`Historical Data Table (customer_history)`**
 	- Maintains historical records using SCD2, tracking all changes over time, ensuring data integrity and accurate historical tracking.
-- Snowflake Stream
+- **`Snowflake Stream`**
 	- Tracks incremental changes in the customer table (current records), enabling the efficient handling and update of new or modified data.
-- Snowflake Task
+- **`Snowflake Task`**
 	- Automates the process of updating both the customer table and the customer_history table in real-time, ensuring continuous data flow and historical tracking without manual intervention.
 
 ## Automation Flow
-- Data Generation:
+- **`Data Generation:`**
 	- The Python script in Jupyter Lab generates synthetic data and saves it to a folder on the EC2 instance.
-- Data Transfer:
+- **`Data Transfer:`**
 	- Apache NiFi detects new files in the local folder and uploads them to AWS S3.
-- Data Load:
+- **`Data Load:`**
 	- Snowpipe automatically loads the data from S3 into Snowflake for processing.
-- Data Processing:
+- **`Data Processing:`**
 	- The Current Records Table and Historical Data Table are updated automatically via Snowflake Streams and Tasks, ensuring the latest data is always reflected in real-time.
 
 ## Technologies Used
@@ -89,14 +89,14 @@ Together, the Stream and Task work to ensure that the updates are captured, tran
 - Snowflake
 
 ## Setup Instructions
-- AWS EC2 Instance:
+- **`AWS EC2 Instance:`**
 	- Set up an AWS EC2 instance to host the project.
 	- Install Docker and configure Apache NiFi and Jupyter Lab inside containers.
-- Python and Faker Module:
+- **`Python and Faker Module:`**
 	- Install the Faker module and configure the Python script to generate synthetic data.
-- NiFi Workflow:
+- **`NiFi Workflow:`**
 	- Set up the NiFi workflow to monitor the local folder and automatically transfer files to AWS S3.
-- Snowflake Setup:
+- **`Snowflake Setup:`**
 	- Configure Snowpipe for automatic data loading from S3 into Snowflake.
 	- Create the necessary tables, streams, and tasks for automating data processing and maintaining historical records.
 
