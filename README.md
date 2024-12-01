@@ -14,10 +14,10 @@ The pipeline performs the following tasks:
 - Snowpipe is configured to automatically load the files from the S3 bucket into Snowflake for further processing and analysis.
 ## 4. Data Processing in Snowflake
 - The data processing in Snowflake is structured around three key tables, each serving a specific purpose to handle raw, current, and historical data:
-- ### 1. Raw Data Table (customer_raw):
+#### 1. Raw Data Table (customer_raw):
 - This table stores the unmodified data fetched from S3. It acts as the staging area where the raw data remains unchanged until it is processed and moved to the next stages.
-### 2. Current Records Table (customer):
+#### 2. Current Records Table (customer):
 - The customer table is designed to maintain the latest and most accurate records. It uses SCD1 (Slowly Changing Dimension Type 1) to update the current records by only inserting new or updated data from the customer_raw table. This ensures that only relevant and fresh data is retained, while older data is overwritten.
-### 3. Historical Data Table (customer_history):
+#### 3. Historical Data Table (customer_history):
 - The customer_history table is responsible for maintaining a log of all historical changes. It uses SCD2 (Slowly Changing Dimension Type 2) to track changes over time, ensuring that every modification or update to customer data is recorded with a timestamp and kept for historical reference.
 
