@@ -30,15 +30,15 @@ The pipeline performs the following tasks:
 Together, the Stream and Task work to ensure that the updates are captured, transformed, and inserted into the tables automatically, maintaining the accuracy and historical integrity of the data.
 
 ## How It Works (Automated Flow)
-#### Data Generation:
-- The Python script in Jupyter Lab is run to generate synthetic data, which is saved as a CSV file on the EC2 instance.
-#### Data Transfer to S3:
-- The Apache NiFi workflow detects the new file in the local EC2 folder and automatically uploads it to an AWS S3 bucket.
-#### Snowpipe Load:
-- Once the file is in S3, Snowpipe automatically loads the data into Snowflake for further processing.
-#### Data Processing:
-- The data is processed into two tables: the current records table (customer using SCD1) and the historical data table (customer_history using SCD2).
-- The Snowflake Stream captures any incremental changes, while Snowflake Tasks automate the updates to both tables, ensuring real-time consistency and historical accuracy.
+- **`Data Generation`**:
+	- The Python script in Jupyter Lab is run to generate synthetic data, which is saved as a CSV file on the EC2 instance.
+- **`Data Transfer to S3`**:
+	- The Apache NiFi workflow detects the new file in the local EC2 folder and automatically uploads it to an AWS S3 bucket.
+- **`Snowpipe Load`**:
+	- Once the file is in S3, Snowpipe automatically loads the data into Snowflake for further processing.
+- **`Data Processing`**:
+	- The data is processed into two tables: the current records table (customer using SCD1) and the historical data table (customer_history using SCD2).
+	- The Snowflake Stream captures any incremental changes, while Snowflake Tasks automate the updates to both tables, ensuring real-time consistency and historical accuracy.
 
 ## Key Components
   #### AWS EC2 Instance
